@@ -28,6 +28,7 @@ const nome = document.getElementById("fname");
 const proprietario = document.getElementById("lname");
 const specie = document.getElementById("species");
 const razza = document.getElementById("breed");
+
 const animalss = [];
 
 class animal {
@@ -40,14 +41,27 @@ class animal {
 }
 formNode.onsubmit = function (e) {
   e.preventDefault();
-  const newli = document.createElement("li");
-
+  const p = document.createElement("p");
+  const div = document.querySelector("div");
+  div.appendChild(p);
   const animali = new animal(nome.value, proprietario.value, specie.value, razza.value);
   animalss.push(animali);
-  console.log(animalss);
+
+  p.innerHTML =
+    "L'animale è " +
+    animali.nome +
+    "  " +
+    "Il proprietario è" +
+    animali.proprietario +
+    "  " +
+    "La specie è" +
+    animali.specie +
+    "  " +
+    "La razza è" +
+    animali.razza;
+
   nome.value = "";
   proprietario.value = "";
   specie.value = "";
   razza.value = "";
-  animalss.appendChild(lista);
 };
