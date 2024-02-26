@@ -47,7 +47,7 @@ formNode.onsubmit = function (e) {
   const animali = new animal(nome.value, proprietario.value, specie.value, razza.value);
   animalss.push(animali);
 
-  p.innerHTML =
+  p.textContent =
     "L'animale è " +
     animali.nome +
     "  " +
