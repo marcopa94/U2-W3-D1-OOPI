@@ -31,37 +31,38 @@ const razza = document.getElementById("breed");
 
 const animalss = [];
 
-class animal {
-  constructor(nome, proprietario, specie, razza) {
+class Animali {
+  constructor(nome, proprietario, specie, razze) {
     this.nome = nome;
     this.proprietario = proprietario;
     this.specie = specie;
-    this.razza = razza;
+    this.razze = razze;
   }
 }
 formNode.onsubmit = function (e) {
   e.preventDefault();
-  const p = document.createElement("p");
-  const div = document.querySelector("div");
-  div.appendChild(p);
-  const animali = new animal(nome.value, proprietario.value, specie.value, razza.value);
-  animalss.push(animali);
 
-  p.textContent =
-    "L'animale è " +
-    animali.nome +
-    "  " +
-    "Il proprietario è" +
-    animali.proprietario +
-    "  " +
+  const animals = new Animali(nome.value, proprietario.value, specie.value, razza.value);
+  animalss.push(animals);
+  const paragrafo = document.createElement("p");
+  const div = document.getElementsByClassName("contenitore")[0];
+  div.appendChild(paragrafo);
+  paragrafo.innerText =
+    "Il nome è : " +
+    " " +
+    nome.value +
+    " " +
+    "Il proprietario si chiama" +
+    proprietario.value +
+    " " +
+    " " +
     "La specie è" +
-    animali.specie +
-    "  " +
-    "La razza è" +
-    animali.razza;
-
-  nome.value = "";
-  proprietario.value = "";
-  specie.value = "";
-  razza.value = "";
+    " " +
+    " " +
+    specie.value +
+    " " +
+    "La razza è la seguente" +
+    " " +
+    razza.value;
+  console.log(animals);
 };
